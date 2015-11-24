@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tuardoui <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/24 15:15:06 by tuardoui          #+#    #+#             */
-/*   Updated: 2015/11/24 15:15:30 by tuardoui         ###   ########.fr       */
+/*   Created: 2015/11/24 13:33:06 by tuardoui          #+#    #+#             */
+/*   Updated: 2015/11/24 14:04:53 by tuardoui         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	ft_strlen(char *s)
+int		ft_strlen(char *s)
 {
-	int	i;
+	int		x;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	x = 0;
+	while (s[x])
+		x++;
+	return (x);
 }
 
-char	*ft_strdup(char *src)
+char	*ft_strrev(char *str)
 {
-	char	*new;
-	int		len;
-	int		i;
+	int i;
+	int j;
+	char x;
 
-	if (!src)
-		return (NULL);
-	len = ft_strlen(src);
-	if (!(new = (char *)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	i = -1;
-	while (++i < len)
-		new[i] = src[i];
-	new[i] = '\0';
-	return (new);
+	i = 0;
+	j = ft_strlen(str) -1;
+	while (i < j)
+	{
+		x = str[i];
+		str[i] = str[j];
+		str[j] = x;
+		i++;
+		j--;
+	}
+	return (str);
 }
 
